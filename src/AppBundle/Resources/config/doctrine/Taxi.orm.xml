@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Taxi" table="taxi">
+    <indexes>
+      <index name="driver_id" columns="driver_id"/>
+    </indexes>
+    <id name="taxiId" type="integer" column="taxi_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="taxiRegistrationNumber" type="string" column="taxi_registration_number" length="20" nullable="false"/>
+    <field name="taxiType" type="string" column="taxi_type" length="10" nullable="false"/>
+    <many-to-one field="driver" target-entity="Driver">
+      <join-columns>
+        <join-column name="driver_id" referenced-column-name="driver_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

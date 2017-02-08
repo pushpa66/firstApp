@@ -1,0 +1,35 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Gpslocationdriver
+ *
+ * @ORM\Table(name="gpslocationdriver")
+ * @ORM\Entity
+ */
+class Gpslocationdriver
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="location", type="string", length=20, nullable=false)
+     */
+    private $location;
+
+    /**
+     * @var \AppBundle\Entity\Driver
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Driver")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="driver_id", referencedColumnName="driver_id")
+     * })
+     */
+    private $driver;
+
+
+}

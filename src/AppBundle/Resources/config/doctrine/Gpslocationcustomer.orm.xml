@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Gpslocationcustomer" table="gpslocationcustomer">
+    <indexes>
+      <index name="customer_id" columns="customer_id"/>
+      <index name="customer_id_4" columns="customer_id"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="customer_id_2" columns="customer_id"/>
+      <unique-constraint name="customer_id_3" columns="customer_id"/>
+    </unique-constraints>
+    <id name="customer" association-key="true"/>
+    <field name="location" type="string" column="location" length="20" nullable="false"/>
+    <one-to-one field="customer" target-entity="Customer">
+      <join-columns>
+        <join-column name="customer_id" referenced-column-name="customer_id"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

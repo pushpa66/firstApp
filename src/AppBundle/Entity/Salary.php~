@@ -1,0 +1,49 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Salary
+ *
+ * @ORM\Table(name="salary")
+ * @ORM\Entity
+ */
+class Salary
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="month", type="string", length=20, nullable=false)
+     */
+    private $month;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="total_distance", type="integer", nullable=false)
+     */
+    private $totalDistance;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="monthly_salary", type="integer", nullable=false)
+     */
+    private $monthlySalary;
+
+    /**
+     * @var \AppBundle\Entity\Driver
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Driver")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="driver_id", referencedColumnName="driver_id")
+     * })
+     */
+    private $driver;
+
+
+}
